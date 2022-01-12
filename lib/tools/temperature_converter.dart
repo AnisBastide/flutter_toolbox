@@ -1,26 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_toolbox/tools/age_calculator.dart';
-import 'package:flutter_toolbox/tools/area_converter.dart';
-import 'package:flutter_toolbox/tools/date_delay_calculator.dart';
-import 'package:flutter_toolbox/tools/distance_calculator.dart';
-import 'package:flutter_toolbox/tools/numerical_converter.dart';
-import 'package:flutter_toolbox/tools/redeem_calculator.dart';
-import 'package:flutter_toolbox/tools/roman_numerical_converter.dart';
-import 'package:flutter_toolbox/tools/temperature_converter.dart';
 
-class HomePage extends StatefulWidget {
+class TemperatureConverter extends StatefulWidget {
+  static const tag = "temperatureconverter";
   @override
-  _HomePageState createState() => _HomePageState();
+  _TemperatureConverterState createState() => _TemperatureConverterState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _TemperatureConverterState extends State<TemperatureConverter> {
   int index = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Flutter Toolbox"),
+        title: const Text("Temperature converter"),
         centerTitle: true,
       ),
       body: CustomScrollView(
@@ -35,7 +28,7 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(AgeCalculator.tag);
+                    //Navigator.of(context).pushNamed(SecondPage.tag);
                   },
                   child: Stack(
                     children: const [
@@ -58,7 +51,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(RedeemCalculator.tag);
+                    //Navigator.of(context).pushNamed(SecondPage.tag);
                   },
                   child: Stack(
                     children: const [
@@ -81,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(DateDelayCalculator.tag);
+                    //Navigator.of(context).pushNamed(SecondPage.tag);
                   },
                   child: Stack(
                     children: const [
@@ -104,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(Distance_Calculator.tag);
+                    //Navigator.of(context).pushNamed(SecondPage.tag);
                   },
                   child: Stack(
                     children: const [
@@ -127,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(NumericalConverter.tag);
+                    //Navigator.of(context).pushNamed(SecondPage.tag);
                   },
                   child: Stack(
                     children: const [
@@ -150,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(AreaConverter.tag);
+                    //Navigator.of(context).pushNamed(SecondPage.tag);
                   },
                   child: Stack(
                     children: const [
@@ -173,7 +166,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(TemperatureConverter.tag);
+                    //Navigator.of(context).pushNamed(SecondPage.tag);
                   },
                   child: Stack(
                     children: const [
@@ -196,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(RomanNumericalConverter.tag);
+                    //Navigator.of(context).pushNamed(SecondPage.tag);
                   },
                   child: Stack(
                     children: const [
