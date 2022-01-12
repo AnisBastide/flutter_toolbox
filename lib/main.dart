@@ -7,6 +7,7 @@ import 'package:flutter_toolbox/tools/numerical_converter.dart';
 import 'package:flutter_toolbox/tools/redeem_calculator.dart';
 import 'package:flutter_toolbox/tools/roman_numerical_converter.dart';
 import 'package:flutter_toolbox/tools/temperature_converter.dart';
+import 'package:flutter_toolbox/tools/bit_size_converter.dart';
 import 'homepage.dart';
 
 void main() {
@@ -30,10 +31,11 @@ class _MyAppState extends State<MyApp> {
         AgeCalculator.tag:(context)=>AgeCalculator(),
         AreaConverter.tag:(context)=>AreaConverter(),
         DateDelayCalculator.tag:(context)=>DateDelayCalculator(),
+        BitSizeConverter.tag:(context)=>const BitSizeConverter(title: "Bit size converter"),
         Distance_Calculator.tag:(context)=>Distance_Calculator(),
         NumericalConverter.tag:(context)=>NumericalConverter(),
         RedeemCalculator.tag:(context)=>RedeemCalculator(),
-        RomanNumericalConverter.tag:(context)=>RomanNumericalConverter(),
+        RomanNumericalConverter.tag:(context)=>RomanNumericalConverter(title: "Roman number converter",),
         TemperatureConverter.tag:(context)=>TemperatureConverter(),
       },
       debugShowCheckedModeBanner: true,

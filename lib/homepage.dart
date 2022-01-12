@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_toolbox/tools/age_calculator.dart';
 import 'package:flutter_toolbox/tools/area_converter.dart';
+import 'package:flutter_toolbox/tools/bit_size_converter.dart';
 import 'package:flutter_toolbox/tools/date_delay_calculator.dart';
 import 'package:flutter_toolbox/tools/distance_calculator.dart';
 import 'package:flutter_toolbox/tools/numerical_converter.dart';
@@ -47,6 +48,29 @@ class _HomePageState extends State<HomePage> {
                       Center(
                           child: Text(
                         "Age calculator",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                            color: Colors.black,
+                            backgroundColor: Colors.lightBlue),
+                      ))
+                    ],
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(BitSizeConverter.tag);
+                  },
+                  child: Stack(
+                    children: const [
+                      Image(
+                        fit: BoxFit.fill,
+                        image: NetworkImage(
+                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
+                      ),
+                      Center(
+                          child: Text(
+                        "Bit size converter",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 25,
