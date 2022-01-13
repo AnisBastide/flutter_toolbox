@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_toolbox/tools/age_calculator.dart';
 import 'package:flutter_toolbox/tools/area_converter.dart';
 import 'package:flutter_toolbox/tools/size_converter.dart';
-import 'package:flutter_toolbox/tools/date_delay_calculator.dart';
 import 'package:flutter_toolbox/tools/distance_calculator.dart';
 import 'package:flutter_toolbox/tools/numerical_converter.dart';
 import 'package:flutter_toolbox/tools/redeem_calculator.dart';
 import 'package:flutter_toolbox/tools/roman_numerical_converter.dart';
 import 'package:flutter_toolbox/tools/temperature_converter.dart';
+import 'package:flutter_toolbox/tools/time_spend.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(DateDelayCalculator.tag);
+                    Navigator.of(context).pushNamed(TimeSpend.tag);
                   },
                   child: Stack(
                     children: const [
