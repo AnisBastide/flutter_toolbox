@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(Distance_Calculator.tag);
+                    Navigator.of(context).pushNamed(DistanceCalculator.tag);
                   },
                   child: Stack(
                     children: const [
