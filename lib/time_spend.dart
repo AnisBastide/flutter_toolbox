@@ -13,6 +13,12 @@ class _TimeSpend extends State<TimeSpend> {
   DateTime secondDate = DateTime.now();
   int time= 0;
   DateFormat dateFormat = DateFormat("yyyy-MM-dd");
+  double yearCalcul = 0;
+  int year = 0;
+  double monthCalcul = 0;
+  int month = 0;
+  double day = 0;
+  String timeSpend = "";
 
   void setDate1(DateTime date){
     setState(() {
@@ -28,7 +34,17 @@ class _TimeSpend extends State<TimeSpend> {
 
   void setDate() {
     setState(() {
-      time = secondDate.difference(firstDate).inDays;
+      time = secondDate.difference(firstDate).inHours;
+      yearCalcul = time / 8760;
+      var tryYear = yearCalcul.toString().split(".");
+      year = int.parse(tryYear[0]);
+      String restYear = "0."+tryYear[1];
+      monthCalcul = double.parse(restYear)*12;
+      var tryMonth = monthCalcul.toString().split(".");
+      month = int.parse(tryMonth[0]);
+      String restMonth = "0."+tryMonth[1];
+      day = double.parse((double.parse(restMonth)*30.417).toStringAsFixed(2));
+      timeSpend = year.toString()+" year(s) "+month.toString()+" month(s) "+day.toString()+" day(s)";
     });
   }
 
@@ -73,8 +89,7 @@ class _TimeSpend extends State<TimeSpend> {
                   style: TextStyle(color: Colors.cyanAccent),
                 )
             ),
-            Text("Date : " + time.toString()),
-
+            Text("Time Spend : " + timeSpend),
           ],
         ),
       ),
