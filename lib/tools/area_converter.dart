@@ -21,26 +21,35 @@ class _AreaCalculatorState extends State<AreaCalculator> {
   String dropdownOneValue = 'm2';
   String dropdownTwoValue = 'm2';
   double result = 0;
-  var powUnit = {'cm2':-5,'m2':0,'km2':6, 'h':5, 'ac':0};
-  var unit = {'cm2':1,'m2':1,'km2':1, 'h':1, 'ac':4046};
+  var powUnit = {'cm2':-4,'m2':0,'km2':5, 'h':4, 'ac':4};
+  var unit = {'cm2':40468564.224,'m2':4046.8564224,'km2':247.105, 'h':2.47105};
+  //km2 -> ac = 247.105
+  //h -> ac = 2.47105
   final _formKey = GlobalKey<FormState>();
 
   void calculate(TextEditingController inputController, String dropDownInputValue,
       TextEditingController resultController, String dropDownSecondValue) {
-    if (inputController.text == "") {
+    if (inputController.text == "" || inputController.text == "X") {
       resultController.text = "X";
     } else {
       num powRatio = powUnit[dropDownInputValue]! - powUnit[dropDownSecondValue]!;
-      num ratio = unit[dropDownSecondValue]! * unit[dropDownInputValue]!;
-      print(powRatio);
-      print(ratio);
 
       setState(() {
-        if (powRatio == 0) {
-          result = double.parse(inputController.text) * ratio;
+        if (dropDownInputValue == dropDownSecondValue) {
+          result = double.parse(inputController.text);
         } else {
-          result =
-              double.parse(inputController.text) * ratio * pow(10, powRatio);
+          if (dropDownInputValue != "ac" && dropDownSecondValue != "ac") {
+            result = double.parse(inputController.text) * pow(10, powRatio);
+          } else {
+            num ratio = 0;
+            if (dropDownInputValue != "ac") {
+              ratio = 1 / unit[dropDownInputValue]!;
+            } else {
+              ratio = unit[dropDownSecondValue]!;
+            }
+            result =
+                double.parse(inputController.text) * ratio;
+          }
         }
         resultController.text = result.toString();
       });
@@ -73,9 +82,9 @@ class _AreaCalculatorState extends State<AreaCalculator> {
                   TextFormField(
                     controller: _firstTextFieldController,
                     keyboardType: TextInputType.number,
-                    inputFormatters: <TextInputFormatter>[
+                    /*inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.digitsOnly
-                    ],
+                    ],*/
                     //
                     onChanged: (String? newValue) {
                       setState(() {
@@ -116,9 +125,9 @@ class _AreaCalculatorState extends State<AreaCalculator> {
                   TextFormField(
                     controller: _secondTextFieldController,
                     keyboardType: TextInputType.number,
-                    inputFormatters: <TextInputFormatter>[
+                    /*inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.digitsOnly
-                    ],
+                    ],*/
                     //
                     onChanged: (String? newValue) {
                       setState(() {
