@@ -42,8 +42,8 @@ class _HomePageState extends State<HomePage> {
                     children: const [
                       Image(
                         fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
+                        image: AssetImage(
+                            "age.jpg"),
                       ),
                       Center(
                           child: Text(
@@ -65,8 +65,8 @@ class _HomePageState extends State<HomePage> {
                     children: const [
                       Image(
                         fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
+                        image: AssetImage(
+                            "bit.jpeg"),
                       ),
                       Center(
                           child: Text(
@@ -88,8 +88,8 @@ class _HomePageState extends State<HomePage> {
                     children: const [
                       Image(
                         fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
+                        image: AssetImage(
+                            "promotions.jpg"),
                       ),
                       Center(
                           child: Text(
@@ -111,8 +111,8 @@ class _HomePageState extends State<HomePage> {
                     children: const [
                       Image(
                         fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
+                        image: AssetImage(
+                            "chrono.png"),
                       ),
                       Center(
                           child: Text(
@@ -134,8 +134,8 @@ class _HomePageState extends State<HomePage> {
                     children: const [
                       Image(
                         fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
+                        image:AssetImage(
+                            "distance.jpg"),
                       ),
                       Center(
                           child: Text(
@@ -157,8 +157,8 @@ class _HomePageState extends State<HomePage> {
                     children: const [
                       Image(
                         fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
+                        image: AssetImage(
+                            "numerical.jpg"),
                       ),
                       Center(
                           child: Text(
@@ -180,8 +180,8 @@ class _HomePageState extends State<HomePage> {
                     children: const [
                       Image(
                         fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
+                        image: AssetImage(
+                            "area.png"),
                       ),
                       Center(
                           child: Text(
@@ -203,8 +203,8 @@ class _HomePageState extends State<HomePage> {
                     children: const [
                       Image(
                         fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
+                        image: AssetImage(
+                            "temperature.jpg"),
                       ),
                       Center(
                           child: Text(
@@ -226,8 +226,8 @@ class _HomePageState extends State<HomePage> {
                     children: const [
                       Image(
                         fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
+                        image: AssetImage(
+                            "roman.jpg"),
                       ),
                       Center(
                           child: Text(
