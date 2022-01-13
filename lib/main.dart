@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_toolbox/age_calculator.dart';
+import 'package:flutter_toolbox/time_spend.dart';
 
 
 void main() {
@@ -28,7 +29,7 @@ class _MyAppState extends State<MyApp> {
 
         primarySwatch: Colors.blue,
       ),
-      home: AgeCalculator(),
+      home: TimeSpend(),
     );
   }
 }

@@ -14,10 +14,10 @@ class _AgeCalculator extends State<AgeCalculator> {
   int nextBirthday = 0;
   DateTime dateOfBirth = DateTime.now();
   String birthday = "";
-  Duration alive= DateTime.now().difference(DateTime.now());
-  int hour = 0;
-  int day = 0;
-  int month = 0;
+  int alive= 0;
+  double hour = 0;
+  double day = 0;
+  double month = 0;
 
   int calculNextBirthday(DateTime date){
     DateTime now = DateTime.now(); // 2022-01-13 00:00:00
@@ -44,10 +44,10 @@ class _AgeCalculator extends State<AgeCalculator> {
       nextBirthday = calculNextBirthday(date);
       today = date;
       dateOfBirth = date;
-      alive = DateTime.now().difference(dateOfBirth);
-      hour = alive.inHours;
-      day = alive.inDays;
-      month = (day*0.032855).round();
+      alive = DateTime.now().difference(dateOfBirth).inHours;
+      hour = alive as double;
+      day = alive / 24;
+      month = alive / 730;
     });
   }
 
