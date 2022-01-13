@@ -9,22 +9,42 @@ class AgeCalculator extends StatefulWidget {
 
 class _AgeCalculator extends State<AgeCalculator> {
   static const tag = "AgeCalculator";
-  DateTime birthdayDate = DateTime.now();
-  DateFormat dateFormat = DateFormat("yyyy-MM-dd");
-  DateFormat dateFormatNext = DateFormat("yyyy-MM-dd HH:mm.ss");
-  String dateOfBirth = "";
+  DateTime today = DateTime.now();
+  DateFormat dateFormatBirthday = DateFormat("yyyy-MM-dd HH:mm.ss");
+  int nextBirthday = 0;
+  DateTime dateOfBirth = DateTime.now();
   String birthday = "";
   Duration alive= DateTime.now().difference(DateTime.now());
   int hour = 0;
   int day = 0;
   int month = 0;
 
+  int calculNextBirthday(DateTime date){
+    DateTime now = DateTime.now(); // 2022-01-13 00:00:00
+    String year = now.year.toString(); // 2022
+    String birthYear = date.year.toString(); // 2000
+    String nextBirth = dateFormatBirthday.format(date); // 2000-01-01 00:00:00
+
+    nextBirth = nextBirth.replaceAll(birthYear, year); // 2022-01-01 00:00:00
+    DateTime next = new DateFormat("yyyy-MM-dd HH:mm.ss").parse(nextBirth);
+    Duration calcul = next.difference(now);
+
+    if (calcul.inDays < 0){
+      year = (int.parse(year)+1).toString(); // 2023
+      nextBirth = nextBirth.replaceAll(birthYear, year); // 2023-01-01 00:00:00
+      Duration calcul = now.difference(next);
+      return calcul.inDays + 1;
+    }else{
+      return calcul.inDays + 1;
+    }
+  }
+
   void setBirthday(DateTime date) {
     setState(() {
-      dateOfBirth = dateFormat.format(date);
-
-      birthdayDate = date;
-      alive = DateTime.now().difference(birthdayDate);
+      nextBirthday = calculNextBirthday(date);
+      today = date;
+      dateOfBirth = date;
+      alive = DateTime.now().difference(dateOfBirth);
       hour = alive.inHours;
       day = alive.inDays;
       month = (day*0.032855).round();
@@ -58,6 +78,7 @@ class _AgeCalculator extends State<AgeCalculator> {
                   )
                 ),
                 Text("Date of birth : "+dateOfBirth.toString()),
+                Text("Next birthday in "+nextBirthday.toString()+" days"),
                 Text("total months lived: "+month.toString()),
                 Text("total days lived: "+day.toString()),
                 Text("total hours lived: "+hour.toString())
