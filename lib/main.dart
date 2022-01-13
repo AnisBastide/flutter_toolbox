@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       routes: {
         AgeCalculator.tag:(context)=>AgeCalculator(),
-        AreaConverter.tag:(context)=>AreaConverter(),
+        AreaCalculator.tag:(context)=>const AreaCalculator(title: "Area converter"),
         DateDelayCalculator.tag:(context)=>DateDelayCalculator(),
         BitSizeConverter.tag:(context)=>const BitSizeConverter(title: "Bit size converter"),
         DistanceCalculator.tag:(context)=>const DistanceCalculator(title: "Distance Calculator"),

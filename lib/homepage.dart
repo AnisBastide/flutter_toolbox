@@ -174,7 +174,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(AreaConverter.tag);
+                    Navigator.of(context).pushNamed(AreaCalculator.tag);
                   },
                   child: Stack(
                     children: const [

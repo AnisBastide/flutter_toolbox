@@ -25,14 +25,14 @@ class _DistanceCalculatorState extends State<DistanceCalculator> {
   var unit = {'nm':1,'mm':1,'cm':1, 'dm':1, 'm':1, 'km':1, 'yd':1.09361, 'ft':3.28083,'in':39.3701};
   final _formKey = GlobalKey<FormState>();
 
-  void calculate(TextEditingController inputController,
-      TextEditingController resultController) {
+  void calculate(TextEditingController inputController, String dropDownInputValue,
+      TextEditingController resultController, String dropDownSecondValue) {
     if (inputController.text == "") {
       resultController.text = "X";
     } else {
-      num powRatio = powUnit[dropdownOneValue]! - powUnit[dropdownTwoValue]!;
+      num powRatio = powUnit[dropDownInputValue]! - powUnit[dropDownSecondValue]!;
       print(powRatio);
-      num ratio = unit[dropdownTwoValue]! / unit[dropdownOneValue]!;
+      num ratio = unit[dropDownSecondValue]! / unit[dropDownInputValue]!;
       print(ratio);
 
       setState(() {
@@ -79,7 +79,7 @@ class _DistanceCalculatorState extends State<DistanceCalculator> {
                     //
                     onChanged: (String? newValue) {
                       setState(() {
-                        calculate(_firstTextFieldController, _secondTextFieldController);
+                        calculate(_firstTextFieldController, dropdownOneValue, _secondTextFieldController, dropdownTwoValue);
                       });
                     },
                     validator: (value) {
@@ -102,7 +102,7 @@ class _DistanceCalculatorState extends State<DistanceCalculator> {
                     onChanged: (String? newValue) {
                       setState(() {
                         dropdownOneValue = newValue!;
-                        calculate(_firstTextFieldController, _secondTextFieldController);
+                        calculate(_firstTextFieldController, dropdownOneValue, _secondTextFieldController, dropdownTwoValue);
                       });
                     },
                     items: <String>['nm','mm','cm', 'dm', 'm', 'km', 'yd', 'ft','in']
@@ -122,7 +122,7 @@ class _DistanceCalculatorState extends State<DistanceCalculator> {
                     //
                     onChanged: (String? newValue) {
                       setState(() {
-                        calculate(_secondTextFieldController, _firstTextFieldController);
+                        calculate(_secondTextFieldController, dropdownTwoValue, _firstTextFieldController, dropdownOneValue);
                       });
                     },
                     validator: (value) {
@@ -144,7 +144,7 @@ class _DistanceCalculatorState extends State<DistanceCalculator> {
                     onChanged: (String? newValue) {
                       setState(() {
                         dropdownTwoValue = newValue!;
-                        calculate(_secondTextFieldController, _firstTextFieldController);
+                        calculate(_secondTextFieldController, dropdownTwoValue, _firstTextFieldController, dropdownOneValue);
                       });
                     },
                     items: <String>['nm','mm','cm', 'dm', 'm', 'km', 'yd', 'ft','in']
