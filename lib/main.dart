@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
         BitSizeConverter.tag:(context)=>const BitSizeConverter(title: "Bit size converter"),
         DistanceCalculator.tag:(context)=>const DistanceCalculator(title: "Distance Calculator"),
         NumericalConverter.tag:(context)=>NumericalConverter(),
-        RedeemCalculator.tag:(context)=>RedeemCalculator(),
+        RedeemCalculator.tag:(context)=>const RedeemCalculator(title:"Redeem calculator"),
         RomanNumericalConverter.tag:(context)=>const RomanNumericalConverter(title: "Roman number converter",),
         TemperatureConverter.tag:(context)=>TemperatureConverter(),
       },
