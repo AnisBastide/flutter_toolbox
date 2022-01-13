@@ -1,7 +1,5 @@
 import 'dart:math';
 
-import 'dart:developer' as dev;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -17,7 +15,8 @@ class BitSizeConverter extends StatefulWidget {
 }
 
 final TextEditingController _firstTextFieldController = TextEditingController();
-final TextEditingController _secondTextFieldController = TextEditingController();
+final TextEditingController _secondTextFieldController =
+    TextEditingController();
 
 class _BitSizeConverterState extends State<BitSizeConverter> {
   String dropdownOneValue = 'O';
@@ -28,6 +27,10 @@ class _BitSizeConverterState extends State<BitSizeConverter> {
 
   void calculate(TextEditingController inputController,
       TextEditingController resultController) {
+    if (inputController.text == "") {
+      return;
+    }
+
     int ratio = unit[dropdownOneValue]! - unit[dropdownTwoValue]!;
 
     setState(() {
@@ -74,7 +77,8 @@ class _BitSizeConverterState extends State<BitSizeConverter> {
                     //
                     onChanged: (String? newValue) {
                       setState(() {
-                        calculate(_firstTextFieldController, _secondTextFieldController);
+                        calculate(_firstTextFieldController,
+                            _secondTextFieldController);
                       });
                     },
                     validator: (value) {
@@ -97,7 +101,8 @@ class _BitSizeConverterState extends State<BitSizeConverter> {
                     onChanged: (String? newValue) {
                       setState(() {
                         dropdownOneValue = newValue!;
-                        calculate(_firstTextFieldController, _secondTextFieldController);
+                        calculate(_firstTextFieldController,
+                            _secondTextFieldController);
                       });
                     },
                     items: <String>['O', 'KO', 'MO', 'GO', 'TO', 'PO']
@@ -117,7 +122,8 @@ class _BitSizeConverterState extends State<BitSizeConverter> {
                     //
                     onChanged: (String? newValue) {
                       setState(() {
-                        calculate(_secondTextFieldController, _firstTextFieldController);
+                        calculate(_secondTextFieldController,
+                            _firstTextFieldController);
                       });
                     },
                     validator: (value) {
@@ -139,7 +145,8 @@ class _BitSizeConverterState extends State<BitSizeConverter> {
                     onChanged: (String? newValue) {
                       setState(() {
                         dropdownTwoValue = newValue!;
-                        calculate(_secondTextFieldController, _firstTextFieldController);
+                        calculate(_secondTextFieldController,
+                            _firstTextFieldController);
                       });
                     },
                     items: <String>['O', 'KO', 'MO', 'GO', 'TO', 'PO']
