@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
         NumericalConverter.tag:(context)=>NumericalConverter(),
         RedeemCalculator.tag:(context)=>const RedeemCalculator(title:"Redeem calculator"),
         RomanNumericalConverter.tag:(context)=>const RomanNumericalConverter(title: "Roman number converter",),
-        TemperatureConverter.tag:(context)=>TemperatureConverter(),
+        TemperatureConverter.tag:(context)=>TemperatureConverter(title:'temperature converter'),
       },
       debugShowCheckedModeBanner: true,
       title: 'Coding ProjectFlutter Demo',
