@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_toolbox/homepage_list.dart';
 import 'package:flutter_toolbox/tools/age_calculator.dart';
 import 'package:flutter_toolbox/tools/area_converter.dart';
 import 'package:flutter_toolbox/tools/distance_calculator.dart';
@@ -13,6 +14,7 @@ import 'package:flutter_toolbox/tools/time_spend.dart';
 void main() {
   runApp(MyApp());
 }
+
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
@@ -23,10 +25,13 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-    AgeCalculator.tag:(context)=> const AgeCalculator(title: "Age calculator"),
+        HomePage.tag: (context) => HomePage(),
+        HomePageList.tag: (context) => HomePageList(),
+        AgeCalculator.tag: (context) =>
+            const AgeCalculator(title: "Age calculator"),
         AreaCalculator.tag: (context) =>
             const AreaCalculator(title: "Area converter"),
-        TimeSpend.tag:(context)=>const TimeSpend(title: "Time spend"),
+        TimeSpend.tag: (context) => const TimeSpend(title: "Time spend"),
         BitSizeConverter.tag: (context) =>
             const BitSizeConverter(title: "Bit size converter"),
         DistanceCalculator.tag: (context) =>
