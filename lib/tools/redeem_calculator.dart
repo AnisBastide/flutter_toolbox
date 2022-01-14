@@ -1,220 +1,123 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class RedeemCalculator extends StatefulWidget {
   static const tag = "redeemcalculator";
+
+  const RedeemCalculator({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
   @override
   _RedeemCalculatorState createState() => _RedeemCalculatorState();
 }
 
+final TextEditingController _firstTextFieldController = TextEditingController();
+final TextEditingController _secondTextFieldController =
+    TextEditingController();
+
 class _RedeemCalculatorState extends State<RedeemCalculator> {
-  int index = 0;
+  double discount = 0;
+  double finalPrice = 0;
+  final _formKey = GlobalKey<FormState>();
+
+  void calculate() {
+    if (_firstTextFieldController.text == '' ||
+        _secondTextFieldController.text == '') {
+      return;
+    }
+    setState(() {
+      discount = double.parse(_firstTextFieldController.text) *
+          (double.parse(_secondTextFieldController.text) / 100);
+      finalPrice = double.parse(_firstTextFieldController.text) - discount;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Redeem Calculator"),
-        centerTitle: true,
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
       ),
-      body: CustomScrollView(
-        primary: false,
-        slivers: <Widget>[
-          SliverPadding(
-            padding: const EdgeInsets.all(80),
-            sliver: SliverGrid.count(
-              crossAxisSpacing: 80,
-              mainAxisSpacing: 80,
-              crossAxisCount: 4,
-              children: <Widget>[
-                TextButton(
-                  onPressed: () {
-                    //Navigator.of(context).pushNamed(SecondPage.tag);
-                  },
-                  child: Stack(
-                    children: const [
-                      Image(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
+      body: Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Column(
+          children: [
+            Form(
+              key: _formKey,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(
+                        width: 200,
+                        child: TextFormField(
+                          controller: _firstTextFieldController,
+                          keyboardType: TextInputType.number,
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter some text';
+                            }
+
+                            return null;
+                          },
+                        ),
                       ),
-                      Center(
-                          child: Text(
-                        "Age calculator",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
+                      const Text('euro')
                     ],
                   ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    //Navigator.of(context).pushNamed(SecondPage.tag);
-                  },
-                  child: Stack(
-                    children: const [
-                      Image(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(
+                        width: 200,
+                        child: TextFormField(
+                          controller: _secondTextFieldController,
+                          keyboardType: TextInputType.number,
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter some text';
+                            }
+                            return null;
+                          },
+                        ),
                       ),
-                      Center(
-                          child: Text(
-                        "Redeem calculator",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
-                    ],
+                    const Text('%')],
                   ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    //Navigator.of(context).pushNamed(SecondPage.tag);
-                  },
-                  child: Stack(
-                    children: const [
-                      Image(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
-                      ),
-                      Center(
-                          child: Text(
-                        "Date delay calculator",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
-                    ],
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    //Navigator.of(context).pushNamed(SecondPage.tag);
-                  },
-                  child: Stack(
-                    children: const [
-                      Image(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
-                      ),
-                      Center(
-                          child: Text(
-                        "Distance calculator",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
-                    ],
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    //Navigator.of(context).pushNamed(SecondPage.tag);
-                  },
-                  child: Stack(
-                    children: const [
-                      Image(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
-                      ),
-                      Center(
-                          child: Text(
-                        "Numerical converter",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
-                    ],
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    //Navigator.of(context).pushNamed(SecondPage.tag);
-                  },
-                  child: Stack(
-                    children: const [
-                      Image(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
-                      ),
-                      Center(
-                          child: Text(
-                            "Area converter",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
-                    ],
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    //Navigator.of(context).pushNamed(SecondPage.tag);
-                  },
-                  child: Stack(
-                    children: const [
-                      Image(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
-                      ),
-                      Center(
-                          child: Text(
-                        "Temperature converter",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
-                    ],
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    //Navigator.of(context).pushNamed(SecondPage.tag);
-                  },
-                  child: Stack(
-                    children: const [
-                      Image(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            "https://pbs.twimg.com/profile_images/1123561499342118912/01VmJUl5_400x400.png"),
-                      ),
-                      Center(
-                          child: Text(
-                        "Roman numerical converter",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+                  TextButton(
+                      onPressed: () {
+                        calculate();
+                      },
+                      child: const Text('Calculer')),
+                  const Text('La reduction est de:'),
+                  Text(discount.toString() + ' euro'),
+                  const Text('Le prix final est de:'),
+                  Text(finalPrice.toString() + ' euro')
+                ],
+              ),
+            )
+          ],
+        ),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

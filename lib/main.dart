@@ -14,35 +14,37 @@ void main() {
   runApp(MyApp());
 }
 
-
 class MyApp extends StatefulWidget {
-
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        AgeCalculator.tag:(context)=>AgeCalculator(),
-        AreaCalculator.tag:(context)=>const AreaCalculator(title: "Area converter"),
-        DateDelayCalculator.tag:(context)=>DateDelayCalculator(),
-        BitSizeConverter.tag:(context)=>const BitSizeConverter(title: "Bit size converter"),
-        DistanceCalculator.tag:(context)=>const DistanceCalculator(title: "Distance calculator"),
-        NumericalConverter.tag:(context)=>const NumericalConverter(title: "Numerical converter"),
-        RedeemCalculator.tag:(context)=>RedeemCalculator(),
-        RomanNumericalConverter.tag:(context)=>const RomanNumericalConverter(title: "Roman number converter"),
-        TemperatureConverter.tag:(context)=>const TemperatureConverter(title: "Temperature converter"),
+        AgeCalculator.tag: (context) => AgeCalculator(),
+        AreaCalculator.tag: (context) =>
+            const AreaCalculator(title: "Area converter"),
+        DateDelayCalculator.tag: (context) => DateDelayCalculator(),
+        BitSizeConverter.tag: (context) =>
+            const BitSizeConverter(title: "Bit size converter"),
+        DistanceCalculator.tag: (context) =>
+            const DistanceCalculator(title: "Distance Calculator"),
+        NumericalConverter.tag: (context) =>
+            const NumericalConverter(title: "Numerical converter"),
+        RedeemCalculator.tag: (context) =>
+            const RedeemCalculator(title: "Redeem calculator"),
+        RomanNumericalConverter.tag: (context) => const RomanNumericalConverter(
+              title: "Roman number converter",
+            ),
+        TemperatureConverter.tag: (context) =>
+            const TemperatureConverter(title: 'Temperature converter'),
       },
       debugShowCheckedModeBanner: true,
       title: 'Coding ProjectFlutter Demo',
-
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: HomePage(),

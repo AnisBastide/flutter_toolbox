@@ -4,47 +4,64 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class TemperatureConverter extends StatefulWidget {
-  static const tag = "temperaturecalculator";
-
+  static const tag = "temperatureconverter";
   const TemperatureConverter({Key? key, required this.title}) : super(key: key);
-
   final String title;
-
   @override
-  State<TemperatureConverter> createState() => _TemperatureConverterState();
+  _TemperatureConverterState createState() => _TemperatureConverterState();
 }
 
 final TextEditingController _firstTextFieldController = TextEditingController();
 final TextEditingController _secondTextFieldController = TextEditingController();
 
 class _TemperatureConverterState extends State<TemperatureConverter> {
-  String dropdownOneValue = 'm';
-  String dropdownTwoValue = 'm';
+
+  final TextEditingController _firstTextFieldController = TextEditingController();
+  final TextEditingController _secondTextFieldController = TextEditingController();
+  String dropdownOneValue = 'C';
+  String dropdownTwoValue = 'C';
   double result = 0;
-  var powUnit = {'nm':-9,'mm':-3,'cm':-2, 'dm':-1, 'm':0, 'km':3, 'yd':0, 'ft':0,'in':0};
-  var unit = {'nm':1,'mm':1,'cm':1, 'dm':1, 'm':1, 'km':1, 'yd':1.09361, 'ft':3.28083,'in':39.3701};
   final _formKey = GlobalKey<FormState>();
 
-  void calculate(TextEditingController inputController, String dropDownInputValue,
-      TextEditingController resultController, String dropDownSecondValue) {
+  void calculate(TextEditingController inputController,
+      TextEditingController resultController,String dropdownOneValue,String dropdownTwoValue) {
     if (inputController.text == "") {
-      resultController.text = "X";
-    } else {
-      num powRatio = powUnit[dropDownInputValue]! - powUnit[dropDownSecondValue]!;
-      print(powRatio);
-      num ratio = unit[dropDownSecondValue]! / unit[dropDownInputValue]!;
-      print(ratio);
-
-      setState(() {
-        if (powRatio == 0) {
-          result = double.parse(inputController.text) * ratio;
-        } else {
-          result =
-              double.parse(inputController.text) * ratio * pow(10, powRatio);
-        }
-        resultController.text = result.toString();
-      });
+      return;
     }
+    double value = double.parse(inputController.text);
+    if(dropdownOneValue == 'C'){
+      switch (dropdownTwoValue){
+        case 'C':{result = value;}
+        break;
+        case 'F':{result = (value * 1.8) + 32;}
+        break;
+        case 'K':{result = value + 273.15; }
+        break;
+      }
+    } else if(dropdownOneValue == 'F'){
+      switch (dropdownTwoValue){
+        case 'F':{result = value;}
+        break;
+        case 'C':{result = (value - 32) / 1.8 ;}
+        break;
+        case 'K':{result = ((value - 32) / 1.8) + 273.15; }
+        break;
+      }
+    }else if(dropdownOneValue == 'K'){
+      switch (dropdownTwoValue){
+        case 'K':{result = value;}
+        break;
+        case 'C':{result = (value - 273.15) ;}
+        break;
+        case 'F':{result = ((value - 273.15)  *1.8) +32 ; }
+        break;
+      }
+    }
+
+    setState(() {
+
+      resultController.text = result.toString();
+    });
   }
 
   @override
@@ -79,7 +96,7 @@ class _TemperatureConverterState extends State<TemperatureConverter> {
                     //
                     onChanged: (String? newValue) {
                       setState(() {
-                        calculate(_firstTextFieldController, dropdownOneValue, _secondTextFieldController, dropdownTwoValue);
+                        calculate(_firstTextFieldController, _secondTextFieldController,dropdownOneValue,dropdownTwoValue);
                       });
                     },
                     validator: (value) {
@@ -102,10 +119,10 @@ class _TemperatureConverterState extends State<TemperatureConverter> {
                     onChanged: (String? newValue) {
                       setState(() {
                         dropdownOneValue = newValue!;
-                        calculate(_firstTextFieldController, dropdownOneValue, _secondTextFieldController, dropdownTwoValue);
+                        calculate(_firstTextFieldController, _secondTextFieldController,dropdownOneValue,dropdownTwoValue);
                       });
                     },
-                    items: <String>['nm','mm','cm', 'dm', 'm', 'km', 'yd', 'ft','in']
+                    items: <String>['C','F','K']
                         .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
@@ -122,7 +139,7 @@ class _TemperatureConverterState extends State<TemperatureConverter> {
                     //
                     onChanged: (String? newValue) {
                       setState(() {
-                        calculate(_secondTextFieldController, dropdownTwoValue, _firstTextFieldController, dropdownOneValue);
+                        calculate(_secondTextFieldController, _firstTextFieldController,dropdownTwoValue,dropdownOneValue);
                       });
                     },
                     validator: (value) {
@@ -144,10 +161,10 @@ class _TemperatureConverterState extends State<TemperatureConverter> {
                     onChanged: (String? newValue) {
                       setState(() {
                         dropdownTwoValue = newValue!;
-                        calculate(_secondTextFieldController, dropdownTwoValue, _firstTextFieldController, dropdownOneValue);
+                        calculate(_secondTextFieldController, _firstTextFieldController,dropdownTwoValue,dropdownOneValue);
                       });
                     },
-                    items: <String>['nm','mm','cm', 'dm', 'm', 'km', 'yd', 'ft','in']
+                    items: <String>['C','F','K']
                         .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
