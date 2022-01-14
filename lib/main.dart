@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_toolbox/cardpage.dart';
 import 'package:flutter_toolbox/tools/age_calculator.dart';
 import 'package:flutter_toolbox/tools/area_converter.dart';
 import 'package:flutter_toolbox/tools/distance_calculator.dart';
@@ -46,7 +47,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: CardPage(),
     );
   }
 }
