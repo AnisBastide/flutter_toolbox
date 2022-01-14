@@ -77,7 +77,7 @@ class _AgeCalculator extends State<AgeCalculator> {
                   },
                   child: Text(
                     "Select Birthday",
-                    style: TextStyle(color: Colors.cyanAccent),
+                    style: TextStyle(color: Colors.blue),
                   )
                 ),
                 Text("Date of birth : "+dateOfBirth.toString()),

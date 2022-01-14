@@ -61,36 +61,41 @@ class _TimeSpend extends State<TimeSpend> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            TextButton(
-                onPressed: () {
-                  DatePicker.showDatePicker(context,
-                      showTitleActions: true,
-                      minTime: DateTime(0, 1, 1),
-                      maxTime: secondDate,
-                      onChanged: (date) {},
-                      onConfirm: (date) {setDate1(date); setDate();},
-                      currentTime: firstDate,
-                      locale: LocaleType.en);
-                },
-                child: Text(
-                  "Select First Date",
-                  style: TextStyle(color: Colors.cyanAccent),
-                )
-            ),
-            TextButton(
-                onPressed: () {
-                  DatePicker.showDatePicker(context,
-                      showTitleActions: true,
-                      minTime: firstDate,
-                      onChanged: (date) {},
-                      onConfirm: (date) {setDate2(date); setDate();},
-                      currentTime: secondDate,
-                      locale: LocaleType.en);
-                },
-                child: Text(
-                  "Select Second Date",
-                  style: TextStyle(color: Colors.cyanAccent),
-                )
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                    onPressed: () {
+                      DatePicker.showDatePicker(context,
+                          showTitleActions: true,
+                          minTime: DateTime(0, 1, 1),
+                          maxTime: secondDate,
+                          onChanged: (date) {},
+                          onConfirm: (date) {setDate1(date); setDate();},
+                          currentTime: firstDate,
+                          locale: LocaleType.en);
+                    },
+                    child: Text(
+                      "Select First Date",
+                      style: TextStyle(color: Colors.green),
+                    )
+                ),
+                TextButton(
+                    onPressed: () {
+                      DatePicker.showDatePicker(context,
+                          showTitleActions: true,
+                          minTime: firstDate,
+                          onChanged: (date) {},
+                          onConfirm: (date) {setDate2(date); setDate();},
+                          currentTime: secondDate,
+                          locale: LocaleType.en);
+                    },
+                    child: Text(
+                      "Select Second Date",
+                      style: TextStyle(color: Colors.blue),
+                    )
+                ),
+              ],
             ),
             Text("Time Spend : " + timeSpend),
           ],
