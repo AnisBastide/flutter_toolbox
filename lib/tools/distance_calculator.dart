@@ -26,13 +26,11 @@ class _DistanceCalculatorState extends State<DistanceCalculator> {
 
   void calculate(TextEditingController inputController, String dropDownInputValue,
       TextEditingController resultController, String dropDownSecondValue) {
-    if (inputController.text == "") {
+    if (inputController.text == "" || inputController.text == "X") {
       resultController.text = "X";
     } else {
       num powRatio = powUnit[dropDownInputValue]! - powUnit[dropDownSecondValue]!;
-      print(powRatio);
       num ratio = unit[dropDownSecondValue]! / unit[dropDownInputValue]!;
-      print(ratio);
 
       setState(() {
         if (powRatio == 0) {
