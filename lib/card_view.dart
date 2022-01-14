@@ -9,12 +9,12 @@ import 'package:flutter_toolbox/tools/roman_numerical_converter.dart';
 import 'package:flutter_toolbox/tools/temperature_converter.dart';
 import 'package:flutter_toolbox/tools/time_spend.dart';
 
-class HomePage extends StatefulWidget {
+class CardPage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _CardPage createState() => _CardPage();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CardPage extends State<CardPage> {
   int index = 0;
 
   @override
@@ -34,28 +34,32 @@ class _HomePageState extends State<HomePage> {
               mainAxisSpacing: 80,
               crossAxisCount: 4,
               children: <Widget>[
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(AgeCalculator.tag);
-                  },
-                  child: Stack(
-                    children: const [
-                      Image(
-                        fit: BoxFit.fill,
-                        image: AssetImage(
-                            "assets/age.jpg"),
-                      ),
-                      Center(
-                          child: Text(
-                        "Age calculator",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
-                    ],
-                  ),
+                Card(
+
+                ),
+                Card(
+
+                ),
+                Card(
+
+                ),
+                Card(
+
+                ),
+                Card(
+
+                ),
+                Card(
+
+                ),
+                Card(
+
+                ),
+                Card(
+
+                ),
+                Card(
+
                 ),
                 TextButton(
                   onPressed: () {
@@ -66,17 +70,17 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                            "assets/bit.jpeg"),
+                            "bit.jpeg"),
                       ),
                       Center(
                           child: Text(
-                        "Bit size converter",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
+                            "Bit size converter",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                                color: Colors.black,
+                                backgroundColor: Colors.lightBlue),
+                          ))
                     ],
                   ),
                 ),
@@ -89,17 +93,17 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                            "assets/promotions.jpg"),
+                            "promotions.jpg"),
                       ),
                       Center(
                           child: Text(
-                        "Redeem calculator",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
+                            "Redeem calculator",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                                color: Colors.black,
+                                backgroundColor: Colors.lightBlue),
+                          ))
                     ],
                   ),
                 ),
@@ -112,17 +116,17 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                            "assets/chrono.png"),
+                            "chrono.png"),
                       ),
                       Center(
                           child: Text(
-                        "Date delay calculator",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
+                            "Date delay calculator",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                                color: Colors.black,
+                                backgroundColor: Colors.lightBlue),
+                          ))
                     ],
                   ),
                 ),
@@ -135,17 +139,17 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image:AssetImage(
-                            "assets/distance.jpg"),
+                            "distance.jpg"),
                       ),
                       Center(
                           child: Text(
-                        "Distance calculator",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
+                            "Distance calculator",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                                color: Colors.black,
+                                backgroundColor: Colors.lightBlue),
+                          ))
                     ],
                   ),
                 ),
@@ -158,17 +162,17 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                            "assets/numerical.jpg"),
+                            "numerical.jpg"),
                       ),
                       Center(
                           child: Text(
-                        "Numerical converter",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
+                            "Numerical converter",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                                color: Colors.black,
+                                backgroundColor: Colors.lightBlue),
+                          ))
                     ],
                   ),
                 ),
@@ -181,17 +185,17 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                            "assets/area.png"),
+                            "area.png"),
                       ),
                       Center(
                           child: Text(
                             "Area converter",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                                color: Colors.black,
+                                backgroundColor: Colors.lightBlue),
+                          ))
                     ],
                   ),
                 ),
@@ -204,17 +208,17 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                            "assets/temperature.jpg"),
+                            "temperature.jpg"),
                       ),
                       Center(
                           child: Text(
-                        "Temperature converter",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
+                            "Temperature converter",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                                color: Colors.black,
+                                backgroundColor: Colors.lightBlue),
+                          ))
                     ],
                   ),
                 ),
@@ -227,17 +231,17 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                            "assets/roman.jpg"),
+                            "roman.jpg"),
                       ),
                       Center(
                           child: Text(
-                        "Roman numerical converter",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Colors.black,
-                            backgroundColor: Colors.lightBlue),
-                      ))
+                            "Roman numerical converter",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                                color: Colors.black,
+                                backgroundColor: Colors.lightBlue),
+                          ))
                     ],
                   ),
                 ),
