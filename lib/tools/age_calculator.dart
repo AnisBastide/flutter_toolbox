@@ -48,7 +48,7 @@ class _AgeCalculator extends State<AgeCalculator> {
       today = date;
       dateOfBirth = date;
       alive = DateTime.now().difference(dateOfBirth).inHours;
-      hour = alive as double;
+      hour = double.parse(alive.toString());
       day = alive / 24;
       month = alive / 730;
     });

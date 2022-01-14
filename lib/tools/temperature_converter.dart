@@ -9,11 +9,12 @@ class TemperatureConverter extends StatefulWidget {
   final String title;
   @override
   _TemperatureConverterState createState() => _TemperatureConverterState();
-
 }
 
+final TextEditingController _firstTextFieldController = TextEditingController();
+final TextEditingController _secondTextFieldController = TextEditingController();
+
 class _TemperatureConverterState extends State<TemperatureConverter> {
-  int index = 0;
 
   final TextEditingController _firstTextFieldController = TextEditingController();
   final TextEditingController _secondTextFieldController = TextEditingController();
@@ -24,31 +25,35 @@ class _TemperatureConverterState extends State<TemperatureConverter> {
 
   void calculate(TextEditingController inputController,
       TextEditingController resultController,String dropdownOneValue,String dropdownTwoValue) {
+    if (inputController.text == "") {
+      return;
+    }
+    double value = double.parse(inputController.text);
     if(dropdownOneValue == 'C'){
       switch (dropdownTwoValue){
-        case 'C':{result = double.parse(inputController.text);}
+        case 'C':{result = value;}
         break;
-        case 'F':{result = (double.parse(inputController.text) * 1.8) + 32;}
+        case 'F':{result = (value * 1.8) + 32;}
         break;
-        case 'K':{result = double.parse(inputController.text) + 273.15; }
+        case 'K':{result = value + 273.15; }
         break;
       }
-    }else if(dropdownOneValue == 'F'){
+    } else if(dropdownOneValue == 'F'){
       switch (dropdownTwoValue){
-        case 'F':{result = double.parse(inputController.text);}
+        case 'F':{result = value;}
         break;
-        case 'C':{result = (double.parse(inputController.text) - 32) / 1.8 ;}
+        case 'C':{result = (value - 32) / 1.8 ;}
         break;
-        case 'K':{result = ((double.parse(inputController.text) - 32) / 1.8) + 273.15; }
+        case 'K':{result = ((value - 32) / 1.8) + 273.15; }
         break;
       }
     }else if(dropdownOneValue == 'K'){
       switch (dropdownTwoValue){
-        case 'K':{result = double.parse(inputController.text);}
+        case 'K':{result = value;}
         break;
-        case 'C':{result = (double.parse(inputController.text) - 273.15) ;}
+        case 'C':{result = (value - 273.15) ;}
         break;
-        case 'F':{result = ((double.parse(inputController.text)- 273.15)  *1.8) +32 ; }
+        case 'F':{result = ((value - 273.15)  *1.8) +32 ; }
         break;
       }
     }

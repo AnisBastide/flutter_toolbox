@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                            "age.jpg"),
+                            "assets/age.jpg"),
                       ),
                       Center(
                           child: Text(
@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                            "bit.jpeg"),
+                            "assets/bit.jpeg"),
                       ),
                       Center(
                           child: Text(
@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                            "promotions.jpg"),
+                            "assets/promotions.jpg"),
                       ),
                       Center(
                           child: Text(
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                            "chrono.png"),
+                            "assets/chrono.png"),
                       ),
                       Center(
                           child: Text(
@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image:AssetImage(
-                            "distance.jpg"),
+                            "assets/distance.jpg"),
                       ),
                       Center(
                           child: Text(
@@ -158,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                            "numerical.jpg"),
+                            "assets/numerical.jpg"),
                       ),
                       Center(
                           child: Text(
@@ -181,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                            "area.png"),
+                            "assets/area.png"),
                       ),
                       Center(
                           child: Text(
@@ -204,7 +204,7 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                            "temperature.jpg"),
+                            "assets/temperature.jpg"),
                       ),
                       Center(
                           child: Text(
@@ -227,7 +227,7 @@ class _HomePageState extends State<HomePage> {
                       Image(
                         fit: BoxFit.fill,
                         image: AssetImage(
-                            "roman.jpg"),
+                            "assets/roman.jpg"),
                       ),
                       Center(
                           child: Text(
