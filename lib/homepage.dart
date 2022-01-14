@@ -248,11 +248,11 @@ class _HomePageState extends State<HomePage> {
               DrawerHeader(child: Text('Burger Menu')),
               TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(HomePageList.tag);
+                    Navigator.of(context).pushReplacementNamed(HomePageList.tag);
                   },
                   child: Text("List View")),
               TextButton(onPressed:  () {
-                Navigator.of(context).pushNamed(HomePageCard.tag);
+                Navigator.of(context).pushReplacementNamed(HomePageCard.tag);
               }, child: Text("Card view"))
             ],
           ),

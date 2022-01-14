@@ -308,12 +308,12 @@ class _CardPage extends State<HomePageCard> {
               DrawerHeader(child: Text('Grid Menu')),
               TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(HomePage.tag);
+                    Navigator.of(context).pushReplacementNamed(HomePage.tag);
                   },
                   child: Text("Grid view")),
               TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(HomePageList.tag);
+                    Navigator.of(context).pushReplacementNamed(HomePageList.tag);
                   },
                   child: Text("List view"))
             ],
