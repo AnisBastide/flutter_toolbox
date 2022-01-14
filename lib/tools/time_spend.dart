@@ -69,7 +69,7 @@ class _TimeSpend extends State<TimeSpend> {
                       maxTime: secondDate,
                       onChanged: (date) {},
                       onConfirm: (date) {setDate1(date); setDate();},
-                      currentTime: DateTime.now(),
+                      currentTime: firstDate,
                       locale: LocaleType.en);
                 },
                 child: Text(
@@ -84,7 +84,7 @@ class _TimeSpend extends State<TimeSpend> {
                       minTime: firstDate,
                       onChanged: (date) {},
                       onConfirm: (date) {setDate2(date); setDate();},
-                      currentTime: DateTime.now(),
+                      currentTime: secondDate,
                       locale: LocaleType.en);
                 },
                 child: Text(
