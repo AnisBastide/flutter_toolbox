@@ -10,6 +10,7 @@ import 'package:flutter_toolbox/tools/temperature_converter.dart';
 import 'package:flutter_toolbox/tools/time_spend.dart';
 
 import 'homepage.dart';
+import 'homepage_card.dart';
 
 class HomePageList extends StatefulWidget {
   static const tag = "homepagelist";
@@ -203,8 +204,10 @@ class _HomePageListState extends State<HomePageList> {
                   onPressed: () {
                     Navigator.of(context).pushNamed(HomePage.tag);
                   },
-                  child: Text("Grid")),
-              TextButton(onPressed: null, child: Text("Card view"))
+                  child: Text("Grid view")),
+              TextButton(onPressed:  () {
+                Navigator.of(context).pushNamed(HomePageCard.tag);
+              }, child: Text("Card view"))
             ],
           ),
         ));

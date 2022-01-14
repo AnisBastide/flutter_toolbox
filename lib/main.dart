@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_toolbox/homepage_list.dart';
+import 'package:flutter_toolbox/homepage_card.dart';
 import 'package:flutter_toolbox/tools/age_calculator.dart';
 import 'package:flutter_toolbox/tools/area_converter.dart';
 import 'package:flutter_toolbox/tools/distance_calculator.dart';
@@ -27,6 +28,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         HomePage.tag: (context) => HomePage(),
         HomePageList.tag: (context) => HomePageList(),
+        HomePageCard.tag: (context) => HomePageCard(),
         AgeCalculator.tag: (context) =>
             const AgeCalculator(title: "Age calculator"),
         AreaCalculator.tag: (context) =>

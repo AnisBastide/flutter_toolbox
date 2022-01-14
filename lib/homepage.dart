@@ -9,6 +9,7 @@ import 'package:flutter_toolbox/tools/roman_numerical_converter.dart';
 import 'package:flutter_toolbox/tools/temperature_converter.dart';
 import 'package:flutter_toolbox/tools/time_spend.dart';
 
+import 'homepage_card.dart';
 import 'homepage_list.dart';
 
 class HomePage extends StatefulWidget {
@@ -250,7 +251,9 @@ class _HomePageState extends State<HomePage> {
                     Navigator.of(context).pushNamed(HomePageList.tag);
                   },
                   child: Text("List View")),
-              TextButton(onPressed: null, child: Text("Card view"))
+              TextButton(onPressed:  () {
+                Navigator.of(context).pushNamed(HomePageCard.tag);
+              }, child: Text("Card view"))
             ],
           ),
         ));
